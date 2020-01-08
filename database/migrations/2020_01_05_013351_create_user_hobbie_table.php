@@ -21,7 +21,7 @@ class CreateUserHobbieTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('hobbie_id')->references('id')->on('hobbie');
+            $table->foreign('hobbie_id')->references('id')->on('hobbies');
         });
     }
 

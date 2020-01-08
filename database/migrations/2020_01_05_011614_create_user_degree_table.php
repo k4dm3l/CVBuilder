@@ -23,7 +23,7 @@ class CreateUserDegreeTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('degree_id')->references('id')->on('degree');
+            $table->foreign('degree_id')->references('id')->on('degrees');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHobbieTable extends Migration
+class CreateSkillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHobbieTable extends Migration
      */
     public function up()
     {
-        Schema::create('hobbie', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
             $table->string('name');
@@ -29,6 +29,6 @@ class CreateHobbieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hobbie');
+        Schema::dropIfExists('skills');
     }
 }

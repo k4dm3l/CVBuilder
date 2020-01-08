@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLanguageTable extends Migration
+class CreateCollegesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateLanguageTable extends Migration
      */
     public function up()
     {
-        Schema::create('language', function (Blueprint $table) {
+        Schema::create('colleges', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
-            $table->string('language');
+            $table->string('college_name');
+            $table->string('country');
+            $table->string('city');
+            $table->string('postal_code');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateLanguageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language');
+        Schema::dropIfExists('colleges');
     }
 }

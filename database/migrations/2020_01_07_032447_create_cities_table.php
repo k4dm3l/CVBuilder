@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserSkillTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateUserSkillTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_skill', function (Blueprint $table) {
+        Schema::create('cities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('skill_id');
-            $table->string('skill_level');
+            $table->string('name');
+            $table->unsignedBigInteger('state_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('skill_id')->references('id')->on('skills');
+            $table->foreign('state_id')->references('id')->on('states');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateUserSkillTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_skill');
+        Schema::dropIfExists('cities');
     }
 }

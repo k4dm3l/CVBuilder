@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompanieTable extends Migration
+class CreateDegreesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateCompanieTable extends Migration
      */
     public function up()
     {
-        Schema::create('companie', function (Blueprint $table) {
+        Schema::create('degrees', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
-            $table->string('name');
-            $table->string('commercial_area');
+            $table->unsignedBigInteger('college_id');
+            $table->string('title_degree');
+            $table->string('description');
             $table->timestamps();
+
+            $table->foreign('college_id')->references('id')->on('colleges');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateCompanieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companie');
+        Schema::dropIfExists('degrees');
     }
 }

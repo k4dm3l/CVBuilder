@@ -22,7 +22,7 @@ class CreateUserLanguageTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('language_id')->references('id')->on('language');
+            $table->foreign('language_id')->references('id')->on('languages');
         });
     }
 

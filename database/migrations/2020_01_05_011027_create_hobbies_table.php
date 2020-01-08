@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCollegeTable extends Migration
+class CreateHobbiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateCollegeTable extends Migration
      */
     public function up()
     {
-        Schema::create('college', function (Blueprint $table) {
+        Schema::create('hobbies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
-            $table->string('college_name');
-            $table->string('country');
-            $table->string('city');
-            $table->string('postal_code');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateCollegeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('college');
+        Schema::dropIfExists('hobbies');
     }
 }
